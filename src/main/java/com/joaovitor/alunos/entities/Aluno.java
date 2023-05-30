@@ -29,6 +29,10 @@ public class Aluno implements Serializable {
     @Column(nullable = false, updatable = false)
     private String matricula;
 
+    public Aluno(){
+        super();
+    }
+
     public Aluno(String nome, String curso, int idade, String email, String telefone, String matricula) {
         this.nome = nome;
         this.curso = curso;
