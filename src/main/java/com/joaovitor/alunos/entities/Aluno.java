@@ -9,10 +9,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
+@NoArgsConstructor
 @Entity
 @Table(name = "TB_ALUNOS")
 public class Aluno implements Serializable {
@@ -29,10 +33,6 @@ public class Aluno implements Serializable {
     @Column(nullable = false, updatable = false)
     private String matricula;
 
-    public Aluno(){
-        super();
-    }
-
     public Aluno(String nome, String curso, int idade, String email, String telefone, String matricula) {
         this.nome = nome;
         this.curso = curso;
@@ -40,12 +40,6 @@ public class Aluno implements Serializable {
         this.email = email;
         this.telefone = telefone;
         this.matricula = matricula;
-    }
-
-    @Override
-    public String toString() {
-        return "Aluno [id=" + id + ", nome=" + nome + ", curso=" + curso + ", idade=" + idade + ", email=" + email
-                + ", telefone=" + telefone + ", matricula=" + matricula + "]";
     }
 
 }
