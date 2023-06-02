@@ -1,6 +1,7 @@
 package com.joaovitor.alunos.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ public class AlunoService {
         return alunoRepository.findAll();
     }
 
-    public Aluno findAlunoById(Long id) {
-        return alunoRepository.findById(id).orElseThrow(null);
+    public Optional<Aluno> findAlunoById(Long id) {
+        return alunoRepository.findById(id);
     }
 
     @Transactional

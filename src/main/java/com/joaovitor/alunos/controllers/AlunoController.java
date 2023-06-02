@@ -1,6 +1,7 @@
 package com.joaovitor.alunos.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ public class AlunoController {
    }
 
    @GetMapping("/find/{id}")
-   public ResponseEntity<Aluno> getAlunoById(@PathVariable("id") Long id) {
+   public ResponseEntity<Optional<Aluno>> getAlunoById(@PathVariable("id") Long id) {
       return ResponseEntity.status(HttpStatus.OK).body(alunoService.findAlunoById(id));
       // Retornar aqui porque nos outros projetos que eu fiz todos fazem esse método
       // diferente, vamos ver
