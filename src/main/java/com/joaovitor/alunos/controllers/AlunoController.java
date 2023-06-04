@@ -33,27 +33,22 @@ public class AlunoController {
    @GetMapping("/find/{id}")
    public ResponseEntity<Optional<Aluno>> getAlunoById(@PathVariable("id") Long id) {
       return ResponseEntity.status(HttpStatus.OK).body(alunoService.findAlunoById(id));
-      // Retornar aqui porque nos outros projetos que eu fiz todos fazem esse método
-      // diferente, vamos ver
-      // se assim funciona
    }
 
    @PostMapping("/add")
    public ResponseEntity<Aluno> addAluno(@RequestBody Aluno aluno) {
-      Aluno novoAluno = alunoService.addAluno(aluno);
-      return new ResponseEntity<>(novoAluno, HttpStatus.CREATED);
+      return ResponseEntity.status(HttpStatus.CREATED).body(alunoService.addAluno(aluno));
    }
 
    @PutMapping("/edit")
    public ResponseEntity<Aluno> editAluno(@RequestBody Aluno aluno) {
-      Aluno editarAluno = alunoService.updateAluno(aluno);
-      return new ResponseEntity<>(editarAluno, HttpStatus.OK);
+      return ResponseEntity.status(HttpStatus.OK).body(alunoService.updateAluno(aluno));
    }
 
    @DeleteMapping("/delete/{id}")
-   public ResponseEntity<?> deleteAluno(@PathVariable("id") Long id){
+   public ResponseEntity<?> deleteAluno(@PathVariable("id") Long id) {
       alunoService.deleteAluno(id);
-      return new ResponseEntity<>(HttpStatus.OK);
+      return ResponseEntity.status(HttpStatus.OK).body("Usuário deletado com sucesso");
    }
 
 }
